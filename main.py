@@ -46,11 +46,10 @@ def train_model(name, ftrain, generator, samples_per_epoch, nb_epoch,
     callbacks = cbks.CallbackList(callbacks)
 
     callbacks.set_params({
-        'nb_epoch': nb_epoch,
-        'nb_sample': samples_per_epoch,
+        'epochs': nb_epoch,
+        'samples': samples_per_epoch,
         'verbose': verbose,
         'metrics': callback_metrics,
-        'epochs': nb_epoch
     })
     callbacks.on_train_begin()
 
@@ -60,8 +59,8 @@ def train_model(name, ftrain, generator, samples_per_epoch, nb_epoch,
       batch_index = 0
       while samples_seen < samples_per_epoch:
         x, y = next(generator)
-        x = x[:, :-1]
         y = x[:, 1:]
+        x = x[:, :-1]
         # build batch logs
         batch_logs = {}
         if type(x) is list:

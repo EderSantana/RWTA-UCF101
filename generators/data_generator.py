@@ -44,7 +44,7 @@ def get_data(filename='./train.split.1', batch_size=16, time_len=16, image_size=
         out = vgg.predict(X.reshape((-1,)+image_size), batch_size=32)[0]
         out = out.reshape((batch_size, time_len)+out.shape[1:])
         out = out/avg_max - .5
-        yield out[:, :-1], Y
+        yield out, Y
 
 
 if __name__ == '__main__':

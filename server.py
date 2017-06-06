@@ -176,7 +176,7 @@ if __name__ == "__main__":
     parser.add_argument('--generator', dest='generator', type=str, help='Data generator with loading and preprocessing functionalities')
     parser.add_argument('--split', dest='split', type=str, help='Data generator with loading and preprocessing functionalities')
     parser.add_argument('--batch', dest='batch', type=int, default=32, help='Batch size')
-    parser.add_argument('--time', dest='time', type=int, default=1, help='Number of frames per sample')
+    parser.add_argument('--time', dest='time', type=int, default=16, help='Number of frames per sample')
     parser.add_argument('--port', dest='port', type=int, default=5557, help='Port of the ZMQ server')
     parser.add_argument('--buffer', dest='buffer', type=int, default=20, help='High-water mark. Increasing this increses buffer and memory usage.')
     parser.add_argument('--validation', dest='validation', action='store_true', default=False, help='Serve validation dataset instead.')
